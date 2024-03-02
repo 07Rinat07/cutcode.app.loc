@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.app')
+@section('title', 'Главная страница')
+@section('content')
+    @include('partials.header')
 
-    <title>CutCode2024</title>
-
-    <lonk href="/css/app.css" rel="stylesheet"></lonk>
-</head>
-<body>
-<h1>Laravel CutCode 2024</h1>
-
-<script src="/js/app/js"></script>
-</body>
-</html>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 mb-20">
+        @foreach($posts as $post)
+            <div class="px-4 py-8 max-w-xl">
+                <div class="bg-white shadow-2xl">
+                    <div>
+                        <img src="{{$post->thumbnail}}">
+                    </div>
+                    <div class="px-4 py-2 mt-2 bg-white">
+                        <h2 class="font-bold text-2xl text-gray-800">{{$post->title}}</h2>
+                        <p class="sm:text-sm text-xs text-gray-700 px-2 mr-1 my-3">
+                           {!! $post->preview !!}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+@endsection
