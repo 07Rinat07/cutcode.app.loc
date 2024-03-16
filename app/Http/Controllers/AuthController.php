@@ -12,6 +12,13 @@ class AuthController extends Controller
         return view("auth.login");
     }
 
+    public function logout()
+    {
+        auth("web")->logout();
+
+        return redirect(route("home"));
+    }
+
     public function showRegisterForm()
     {
         return view("auth.register");
