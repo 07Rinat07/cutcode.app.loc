@@ -12,6 +12,7 @@ Route::get('/posts/{id}', [\App\Http\Controllers\PostController::class, 'show' ]
 
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::post('/login_process', [\App\Http\Controllers\AuthController::class, 'login'])->name('login_process');
 
 
 Route::get('/register', [\App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
