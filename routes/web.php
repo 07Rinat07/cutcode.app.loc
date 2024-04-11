@@ -24,4 +24,6 @@ Route::middleware("guest")->group(function () {
 });
 
 
+Route::get('/contacts', [\App\Http\Controllers\IndexController::class, 'showContactForm'])->name('contacts');
+Route::post('/contact_form_process', [\App\Http\Controllers\IndexController::class, 'contactForm'])->name('contact_form_process');
 
