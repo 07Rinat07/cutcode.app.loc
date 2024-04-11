@@ -11,7 +11,8 @@ class ContactForm extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $formData;
+    protected $formData = [];
+
     /**
      * Create a new message instance.
      *
@@ -29,6 +30,6 @@ class ContactForm extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.contact_form')->with($this->formData);
     }
 }
