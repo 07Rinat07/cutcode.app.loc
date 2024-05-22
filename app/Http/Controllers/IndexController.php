@@ -29,7 +29,7 @@ class IndexController extends Controller
 
     public function contactForm(ContactFormRequest $request)
     {
-        Mail::to("rinat-sarm@mail.ru")->send(new ContactForm($request->validated()));
+        Mail::to("developerrinaturalsk@yandex.ru")->send(new ContactForm($request->validated()));
 
         return redirect(route("contacts"));
     }
